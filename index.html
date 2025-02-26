@@ -1,0 +1,484 @@
+
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYQNRK8LHK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FYQNRK8LHK');
+    </script>
+
+    <meta charset="utf-8" />
+    <title>Segment Any Motion in Videos</title>
+
+    <meta content="Segmenting moving objects in videos without human annotations"
+        name="description" />
+    <meta content="Segment Any Motion in Videos" property="og:title" />
+    <meta content="Segmenting moving objects in videos without human annotations"
+        property="og:description" />
+    <meta content="http://lerf.io/data/lerf_meta_img.jpg" property="og:image" />
+    <meta content="Segment Any Motion in Videos" property="twitter:title" />
+    <meta content="Segmenting moving objects in videos without human annotations"
+        property="twitter:description" />
+    <meta content="http://lerf.io/data/lerf_meta_img.jpg" property="twitter:image" />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script
+        type="text/javascript">WebFont.load({ google: { families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Changa One:400,400italic", "Varela Round:400", "Bungee Shade:regular", "Roboto:300,regular,500", "Bungee Outline:regular"] } });</script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <link href="data/favicon.png" rel="shortcut icon" type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <style>
+        .video-grid-two-cols {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 10px; /* Gap between videos */
+            width: 60%; /* Set the container width to 60% */
+            margin: 0 auto; /* Center the container horizontally */
+            align-items: center;
+        }
+      
+        .video-grid-two-cols video {
+            width: 100%; /* Videos fill the container width */
+            height: auto;
+        }
+        .video-grid-two-cols-narrow {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr); /* Two columns */
+          gap: 10px; /* Gap between videos */
+          width: 50%; /* Set the container width to 60% */
+          margin: 0 auto; /* Center the container horizontally */
+          align-items: center;
+      }
+      
+      .video-grid-two-cols-narrow video {
+          width: 100%; /* Videos fill the container width */
+          height: auto;
+      }
+        .video-grid-three-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Two columns */
+            gap: 10px; /* Gap between videos */
+            width: 60%; /* Set the container width to 60% */
+            margin: 0 auto; /* Center the container horizontally */
+            align-items: center;
+        }
+      
+        .video-grid-three-cols video {
+            width: 100%; /* Videos fill the container width */
+            height: auto;
+        }
+      
+        .video-grid-three-cols-wide {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); /* Two columns */
+          gap: 10px; /* Gap between videos */
+          width: 70%; /* Set the container width to 60% */
+          margin: 0 auto; /* Center the container horizontally */
+          align-items: center;
+      }
+      
+      .video-grid-three-cols-wide video {
+          width: 100%; /* Videos fill the container width */
+          height: auto;
+      }
+      
+        .video-grid-four-cols {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr); /* Two columns */
+          gap: 10px; /* Gap between videos */
+          width: 60%; /* Set the container width to 60% */
+          margin: 0 auto; /* Center the container horizontally */
+        }
+      
+        .video-grid-four-cols video {
+            width: 100%; /* Videos fill the container width */
+            height: auto;
+        }
+        .video-container {
+          text-align: center;
+          margin: 12px auto;
+        }
+        .video-title {
+          font-size: clamp(0.6em, 1vw, 1em); /* Adjust the font size as needed */
+          margin-top: 5px; /* Space between the video and the title */
+        }
+        @media (max-width: 600px) {
+          .video-title {
+            font-size: 0.8em; /* Adjust the font size for smaller screens */
+          }
+        }
+      </style>
+    
+    <section>
+    <div class="section">
+        <div class="container">
+            <div class="title-row">
+                <h1 class="title">Segment Any Motion in Videos</h1>
+                <h1 class="subheader"> 🌟 Segmenting moving objects in videos without human annotations 🌟 </h1>
+            </div>
+            <div class="base-row author-row">
+                <div class="base-col author-col">
+                    <a href="https://github.com/nnanhuang" target="_blank" class="author-text">
+                        Nan Huang
+                    </a>
+                </div>
+                <div class="base-col author-col">
+                    <a href="https://wzzheng.net/" target="_blank" class="author-text">
+                        Wenzhao Zheng
+                    </a>
+                </div>
+                <div class="base-col author-col">
+                    <a href="https://www.chenfengx.com/" target="_blank" class="author-text">
+                        Chenfeng Xu
+                    </a>
+                </div>
+            </div>
+            <div class="base-row author-row">
+                <div class="base-col author-col">
+                    UC Berkeley / Peking University
+                </div>
+                <div class="base-col author-col">
+                    UC Berkeley
+                </div>
+                <div class="base-col author-col">
+                    UC Berkeley
+                </div>
+            </div>
+            <div class="base-row author-row">
+                <div class="base-col author-col2">
+                    <a href="https://people.eecs.berkeley.edu/~keutzer/" target="_blank" class="author-text">
+                        Kurt Keutzer
+                    </a>
+                </div>
+                <div class="base-col author-col2">
+                    <a href="https://www.shanghangzhang.com/" target="_blank" class="author-text">
+                        Shanghang Zhang
+                    </a>
+                </div>
+                <div class="base-col author-col2">
+                    <a href="https://people.eecs.berkeley.edu/~kanazawa/" target="_blank" class="author-text">
+                        Angjoo Kanazawa
+                    </a>
+                </div>
+                <div class="base-col author-col2">
+                    <a href="https://qianqianwang68.github.io/" target="_blank" class="author-text">
+                        Qianqian Wang
+                    </a>
+                </div>
+            </div>
+            <div class="base-row author-row">
+                <div class="base-col author-col2">
+                    UC Berkeley
+                </div>
+                <div class="base-col author-col2">
+                    Peking University
+                </div>
+                <div class="base-col author-col2">
+                    UC Berkeley
+                </div>
+                <div class="base-col author-col2">
+                    UC Berkeley
+                </div>
+            </div>
+
+            <div class="title-row">
+                <h2 class="subheader">Arxiv 2025</h1>
+            </div>
+            <div class="link-labels base-row">
+                <!-- TODO: Update arxiv link -->
+                <div class="base-col icon-col"><a href="https://arxiv.org/abs/2303.09553" target="_blank"
+                        class="link-block"><img
+                            src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
+                            alt="paper"
+                            sizes="(max-width: 479px) 12vw, (max-width: 767px) 7vw, (max-width: 991px) 41.8515625px, 56.6953125px"
+                            srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png 500w, https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png 672w"
+                            class="icon-img" /></a></div>
+                <!-- TODO: Update code link -->
+                <div class="base-col icon-col"><a href="https://github.com/kerrj/lerf" class="link-block"><img
+                            src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png"
+                            alt="paper" class="icon-img github-img-icon" /></a></div>
+                <!-- TODO: Update data link -->
+                <div class="base-col icon-col"><a href="https://arxiv.org/abs/2303.09553" target="_blank"
+                    class="link-block"><img
+                        src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png"
+                        alt="paper"
+                        sizes="(max-width: 479px) 12vw, (max-width: 767px) 7vw, (max-width: 991px) 41.8515625px, 56.6953125px"
+                        srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png 500w, https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png 672w"
+                        class="icon-img" /></a></div>
+        </div>
+            <div class="link-labels base-row">
+                <div class="base-col icon-col">
+                    <strong class="link-labels-text">Paper</strong>
+                </div>
+                <div class="base-col icon-col">
+                    <strong class="link-labels-text">Code(coming soon)</strong>
+                </div>
+                <div class="base-col icon-col">
+                    <strong class="link-labels-text">Arxiv</strong>
+                </div>
+            </div>
+            <!-- <h1 class="tldr">
+                Segmenting moving objects in videos without human annotations
+            </h1>
+            <video id="main-video" autobuffer muted autoplay loop controls>
+                <source id="mp4" src="data/teaser.mp4" type="video/mp4">
+            </video> -->
+
+            <div class="base-row">
+
+                <div class="base-row add-top-padding">
+                    <!-- <h1 id="abstract">Interacting with LERF on hand-captured scenes</h1> -->
+                    <h1 class="tldr">
+                        <b>Click the thumbnails below to load scenes, use ON/OFF to toggle between RGB and dynamic mask
+                            videos.</b>
+                    </h1>
+
+                </div>
+
+                <div id="main-results" onclick="play_pause()">
+                    <canvas id="canvas" width="864px" height="480px"></canvas>
+                    <canvas id="canvas-overlay" width="864px" height="480px"></canvas>
+                </div>
+
+                <div class="video-bar">
+                    <div id="opacity-col" class="base-col viewer-bar">
+                        <label class="switch">
+                            <input type="checkbox" id="opacity-toggle" checked>
+                            <span class="slider"></span>
+                            <span class="labels" data-on="ON" data-off="OFF"></span>
+                        </label>
+                    </div>
+                    <div class="base-col viewer-bar">
+                        <button id="play-btn" class="video-btn fa fa-lg fa-pause" onclick="play_pause()"></button>
+                    </div>
+                    <div class="base-col viewer-bar video-export">
+                        <button class="video-btn fa fa-arrows-alt fa-lg" onclick="fullscreen()"></button>
+                        <button class="video-btn fa fa-download fa-lg" onclick="download()"></button>
+                    </div>
+                </div>
+
+                <div id="main-results" onclick="play_pause()">
+                    <canvas id="canvas"></canvas>
+                    <canvas id="canvas-overlay"></canvas>
+                </div>
+
+
+                <div class="base-row" style="display: inline-block">
+                    <button class="slide-arrow" id="slide-arrow-prev" onclick="slide_left()">
+                        &#8249;
+                    </button>
+                    <div class="base-row thumbnail-row" , id="thumbnails-scroll">
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-0">
+                                <img src="data/thumbnail/blackswan_thumbnail.jpg" alt="paper" class="thumbnails" />
+                                Blackswan
+                            </button>
+                        </div>
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-1">
+                                <img src="data/thumbnail/dogs-jump.png" alt="paper" class="thumbnails" />
+                                Dogs-jump
+                            </button>
+                        </div>
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-2">
+                                <img src="data/thumbnail/drift-straight.png" alt="paper" class="thumbnails" />
+                                Drift-straight
+                            </button>
+                        </div>
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-3">
+                                <img src="data/thumbnail/dance-twirl.png" alt="paper" class="thumbnails" />
+                                Dance-twirl
+                            </button>
+                        </div>
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-4">
+                                <img src="data/thumbnail/bmx-trees.png" alt="paper" class="thumbnails" />
+                                Bmx-trees
+                            </button>
+                        </div>
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-5">
+                                <img src="data/thumbnail/motocross-jump.png" alt="paper" class="thumbnails" />
+                                Motocross-jump
+                            </button>
+                        </div>
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-6">
+                                <img src="data/thumbnail/soapbox.png" alt="paper" class="thumbnails" />
+                                Soapbox
+                            </button>
+                        </div>
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-7">
+                                <img src="data/thumbnail/kite-surf.png" alt="paper" class="thumbnails" />
+                                Kite-surf
+                            </button>
+                        </div>
+                        <div class="base-col thumbnail-col">
+                            <button class="thumbnail-btn" id="thumb-8">
+                                <img src="data/thumbnail/horsejump-high.png" alt="paper" class="thumbnails" />
+                                Horsejump-high
+                            </button>
+                        </div>
+                    </div>
+                    <button class="slide-arrow" id="slide-arrow-next" onclick="slide_right()">
+                        &#8250;
+                    </button>
+                </div>
+
+                <div class="base-row add-top-padding">
+                    <h1 id="abstract">Abstract</h1>
+                    <p class="paragraph">
+                        Moving object segmentation is a crucial task for achieving a high-level understanding of visual scenes and has numerous downstream applications. Humans can effortlessly segment moving objects in videos. Previous work has largely relied on optical flow to provide motion cues; however, this approach often results in imperfect predictions due to challenges such as partial motion, complex deformations, motion blur and background distractions. We propose a novel approach for moving object segmentation that combines long-range trajectory motion cues with DINO-based semantic features and leverages SAM2 for pixel-level mask densification through an iterative prompting strategy. Our model employs Spatio-Temporal Trajectory Attention and Motion-Semantic Decoupled Embedding to prioritize motion while integrating semantic support. Extensive testing on diverse datasets demonstrates state-of-the-art performance, excelling in challenging scenarios and fine-grained segmentation of multiple objects.
+                    </p>
+                </div>
+                <img id="main-img" src="data/pipeline.png" /> 
+
+                <div class="base-row add-top-padding">
+                    <h1 id="abstract">Overview</h1>
+                    <p class="paragraph">
+                        We take 2D tracks and depth maps generated by off-the-shelf models as input, which are then
+                        processed by a motion encoder to capture motion patterns, producing featured tracks. Next, we use tracks decoder that integrates DINO
+                        feature to decode the featured tracks by decoupling motion and semantic information and ultimately obtain the dynamic trajectories(a).
+                        Finally, using SAM2, we group dynamic tracks belonging to the same object and generate fine-grained moving object masks(b).
+                    </p>
+                </div>
+
+                <div class="base-row add-top-padding">
+                    <!-- <img src="data/nerfstudio_logo.png" alt="Nerfstudio" style="height: 5em; margin-top:2em" /> -->
+                    <h1 id="abstract">
+                        <a id="coming_soon">Why DINO feature? </a>
+                    </h1>
+                    <p class="paragraph">
+                        We observed that in highly challenging scenes, such as those with drastic camera movement 
+or rapid object motion, relying solely on motion information is insufficient.
+In this example, without DINO feature information, the model incorrectly classifies the stationary road
+surface as dynamic, despite the fact that the road lacks the
+ability to move.
+                    </p>
+                </div>
+                <video id="main-video" muted loop controls>
+                    <source id="mp4" src="data/ablation-v2.mp4" type="video/mp4" >
+                </video>
+
+                <div class="base-row add-top-padding">
+                    <!-- <img src="data/nerfstudio_logo.png" alt="Nerfstudio" style="height: 5em; margin-top:2em" /> -->
+                    <h1 id="abstract">
+                        <a id="coming_soon">Why Motion-Semantic Decoupled Embedding? </a>
+                    </h1>
+                    <p class="paragraph">
+                        Simply incorporating DINO as an input during the motion encoding stage causes the model to rely 
+heavily on semantic information, often leading it to assume 
+that objects of the same type share the same motion state.
+                    </p>
+                </div>
+                <video id="main-video" muted loop controls>
+                    <source id="mp4" src="data/ablation.mp4" type="video/mp4" >
+                </video>
+
+
+                <div class="base-row add-top-padding">
+                    <!-- <img src="data/nerfstudio_logo.png" alt="Nerfstudio" style="height: 5em; margin-top:2em" /> -->
+                    <h1 id="abstract">
+                        <a id="coming_soon">More Visual Results</a>
+                    </h1>
+                    <p class="paragraph">
+                        Given the 2D long-range tracks of random samples, our model can determine the motion state of each track. 
+                        And then we group and use the dynamic tracks as different prompt for SAM2.
+                        <!-- , and will -->
+                        <!-- publicize code inside the popular research -->
+                        <!-- codebase <a href="https://github.com/nerfstudio-project/nerfstudio/">Nerfstudio</a>. This video -->
+                        This video shows a non-cherry picked result for DAVIS2016-moving :)
+                    </p>
+                </div>
+                <video id="main-video" muted loop controls>
+                    <source id="mp4" src="data/vis-demo.mp4" type="video/mp4" >
+                </video>
+
+
+                    <div class="base-row add-top-padding">
+                        <!-- <img src="data/nerfstudio_logo.png" alt="Nerfstudio" style="height: 5em; margin-top:2em" /> -->
+                        <h1 id="abstract">
+                            <a id="coming_soon">Related links</a>
+                        </h1>
+                        <p class="paragraph">
+                            We recognize that a few concurrent works address similar problems to ours. We encourage you to check them out: <br>
+                            <a href="https://romosfm.github.io/">RoMo: Robust Motion Segmentation Improves Structure from Motion</a>, and 
+                            <a href="https://www.robots.ox.ac.uk/~vgg/research/lrtl/">Learning segmentation from point trajectories</a>
+                            </p>
+                    </div>
+
+                    <div class="citation add-top-padding">
+                    <h1 id="abstract"> Citation </h1>
+                    <p> If you use this work or find it helpful, please consider citing: (bibtex) </p>
+                    <pre id="codecell0">@inproceedings{lerf2023,
+                        &nbsp;author = {Kerr, Justin* and Kim, Chung Min* and Goldberg, Ken and Kanazawa, Angjoo and Tancik, Matthew},
+                        &nbsp;title = {Segment Any Motion in Videos},
+                        &nbsp;booktitle = {International Conference on Computer Vision (ICCV)},
+                        &nbsp;year = {2023},
+                        } </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <video id="blackswan" controls="false" loop autoplay muted class="videos" webkit-playsinline playsinline>
+        <source src="data/demo/blackswan.mp4" type="video/mp4">
+    </video>
+    <video id="dogs-jump" controls="false" loop muted class="videos" webkit-playsinline playsinline>
+        <source src="data/demo/dogs-jump.mp4" type="video/mp4">
+    </video>
+    <video id="drift-straight" controls="false" loop muted class="videos" webkit-playsinline playsinline>
+        <source src="data/demo/drift-straight_concat.mp4" type="video/mp4">
+    </video>
+    <video id="dance-twirl" controls="false" loop muted class="videos" webkit-playsinline playsinline>
+        <source src="data/demo/dance-twirl_concat.mp4" type="video/mp4">
+    </video>
+    <video id="bmx-trees" controls="false" loop muted class="videos" webkit-playsinline playsinline>
+        <source src="data/demo/bmx-trees_concat.mp4" type="video/mp4">
+    </video>
+    <video id="motocross-jump" controls="false" loop muted class="videos" webkit-playsinline playsinline>
+        <source src="data/demo/motocross-jump_concat.mp4" type="video/mp4">
+    </video>
+    <video id="soapbox" class="videos" controls="false" loop muted webkit-playsinline playsinline>
+        <source src="data/demo/soapbox_concat.mp4" type="video/mp4">
+    </video>
+    <video id="kite-surf" class="videos" controls="false" loop muted webkit-playsinline playsinline>
+        <source src="data/playback_webm/kite-surf_concat.webm" type="video/webm">
+        <source src="data/demo/kite-surf_concat.mp4" type="video/mp4">
+    </video>
+    <video id="horsejump-high" class="videos" controls="false" loop muted webkit-playsinline playsinline>
+        <source src="data/demo/horsejump-high_concat.mp4" type="video/mp4">
+    </video>
+
+    <p class="credit" style="text-align: center;">
+        Credit: The design of this project page references the project pages of 
+        <a href="https://www.matthewtancik.com/nerf">NeRF</a> and 
+        <a href="https://www.lerf.io/">LERF</a>.
+    </p>
+    </section>
+
+
+</body>
