@@ -1,6 +1,11 @@
 
-var video_names = ['blackswan','dogs-jump','drift-straight', 'dance-twirl', 'bmx-trees', 'motocross-jump', 'soapbox', 'kite-surf', 'horsejump-high'];
+var video_names = ['child-field','cat-spinning','dog-snow','hiking-follow','dog-running','blackswan','dogs-jump','drift-straight', 'dance-twirl', 'bmx-trees', 'motocross-jump', 'soapbox', 'kite-surf', 'horsejump-high'];
 var download_paths = [
+  'data/high_res/child-field.mp4',
+  'data/high_res/cat-spinning.mp4',
+  'data/high_res/dog-snow.mp4',
+  'data/high_res/hiking-follow.mp4',
+  'data/high_res/dog-running.mp4',
   'data/high_res/blackswan.mp4',
   'data/high_res/dogs-jump.mp4',
   'data/high_res/drift-straight.mp4', 
@@ -32,6 +37,11 @@ $(function() {
       document.getElementById('thumb-6'),
       document.getElementById('thumb-7'),
       document.getElementById('thumb-8'),
+      document.getElementById('thumb-9'),
+      document.getElementById('thumb-10'),
+      document.getElementById('thumb-11'),
+      document.getElementById('thumb-12'),
+      document.getElementById('thumb-13'),    
     ];
     for (var i = 0; i < thumbnails.length; i++) {
       thumbnails[i].addEventListener('click', change_video_index.bind(this, i));

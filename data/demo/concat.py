@@ -63,8 +63,8 @@ def concatenate_videos_horizontally(video_path1, video_path2, output_path):
     print(f"{output_path}")
 
 # 使用示例
-video_path1 = "static/videos/davis-mask/horsejump-high/video/original_rgb.mp4"
-video_path2 = "static/videos/davis-mask/horsejump-high/video/mask_rgb_color.mp4"
-output_path = "/Users/huangnan/4_3d_track/page/motion-seg.github.io/data/demo/horsejump-high_concat.mp4"
+video_path1 = "/Users/huangnan/4_3d_track/motion-seg.github.io/data/crop/original_rgb5.mp4"
+video_path2 = "/Users/huangnan/4_3d_track/motion-seg.github.io/data/crop/mask_rgb_color5.mp4"
+output_path = "/Users/huangnan/4_3d_track/motion-seg.github.io/data/demo/cat-spinning.mp4"
 
 concatenate_videos_horizontally(video_path1, video_path2, output_path)
